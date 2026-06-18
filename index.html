@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Судоку 9×9 — WebDataRocks</title>
+
+  <link rel="stylesheet" href="https://cdn.webdatarocks.com/latest/webdatarocks.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Бонусне завдання</p>
+        <h1>Судоку 9×9</h1>
+        <p class="subtitle">
+          Основне поле гри виводиться через таблицю WebDataRocks. Кнопки, табло та підказки - додаткові елементи ззовні.
+        </p>
+      </div>
+
+      <div class="scoreboard" aria-label="Табло гри">
+        <div class="score-card">
+          <span>Ходи</span>
+          <strong id="movesCount">0</strong>
+        </div>
+        <div class="score-card">
+          <span>Помилки</span>
+          <strong id="mistakesCount">0</strong>
+        </div>
+        <div class="score-card">
+          <span>Підказки</span>
+          <strong id="hintsCount">0</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-layout">
+      <div class="board-panel">
+        <div class="board-title-row">
+          <h2>Ігрове поле</h2>
+          <span id="gameStatus" class="status">Оберіть клітинку</span>
+        </div>
+        <div id="wdrTable" class="wdr-box"></div>
+      </div>
+
+      <aside class="control-panel">
+        <h2>Керування</h2>
+        <p class="help-text">
+          Якщо кліки по таблиці не спрацьовують, користуйтеся механічним вибором: оберіть рядок і стовпець, натисніть «Обрати клітинку», а потім число.
+          Сині клітинки - початкові, їх змінювати не можна.
+        </p>
+
+        <div class="manual-picker" aria-label="Механічний вибір клітинки">
+          <label>
+            Рядок
+            <select id="rowSelect">
+              <option value="0">1</option>
+              <option value="1">2</option>
+              <option value="2">3</option>
+              <option value="3">4</option>
+              <option value="4">5</option>
+              <option value="5">6</option>
+              <option value="6">7</option>
+              <option value="7">8</option>
+              <option value="8">9</option>
+            </select>
+          </label>
+          <label>
+            Стовпець
+            <select id="colSelect">
+              <option value="0">A</option>
+              <option value="1">B</option>
+              <option value="2">C</option>
+              <option value="3">D</option>
+              <option value="4">E</option>
+              <option value="5">F</option>
+              <option value="6">G</option>
+              <option value="7">H</option>
+              <option value="8">I</option>
+            </select>
+          </label>
+          <button id="selectCellBtn" class="manual-select-btn">Обрати клітинку</button>
+        </div>
+
+        <div class="selected-box">
+          Поточна клітинка: <strong id="selectedCellText">не обрана</strong>
+        </div>
+
+        <div class="number-pad" aria-label="Кнопки чисел">
+          <button data-number="1">1</button>
+          <button data-number="2">2</button>
+          <button data-number="3">3</button>
+          <button data-number="4">4</button>
+          <button data-number="5">5</button>
+          <button data-number="6">6</button>
+          <button data-number="7">7</button>
+          <button data-number="8">8</button>
+          <button data-number="9">9</button>
+        </div>
+
+        <div class="actions">
+          <button id="eraseBtn" class="secondary">Стерти</button>
+          <button id="checkBtn" class="secondary">Перевірити</button>
+          <button id="hintBtn" class="secondary">Підказка</button>
+          <button id="newGameBtn" class="primary">Нова гра</button>
+        </div>
+
+        <div class="rules">
+          <h3>Правила</h3>
+          <ul>
+            <li>У кожному рядку мають бути числа 1–9 без повторів.</li>
+            <li>У кожному стовпці мають бути числа 1–9 без повторів.</li>
+            <li>У кожному квадраті 3×3 мають бути числа 1–9 без повторів.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="https://cdn.webdatarocks.com/latest/webdatarocks.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
